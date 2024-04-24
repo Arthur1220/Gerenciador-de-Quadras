@@ -1,0 +1,49 @@
+--apresentar dbm (pgmodeler)
+
+--conectar no usuario postgres
+su - postgres
+
+--verificar se possui PATH
+whereis postgres
+
+--caso nao tenha
+export PATH=/usr/lib/postgresql/<sua versao>/bin:$PATH
+
+--limpar os sgdbs
+killall postgres
+
+--criar sgdb
+initdb <nome do SGDB>
+
+--criar banco de dados
+createdb <nome do banco de dados>
+
+--acessar banco de dados
+psql <nome do banco de dados>
+
+--copiar e colar o banco de dados -> .sql
+
+--copiar e colar o Proceure-LOG
+
+--copiar e colar as Functions
+
+--copiar e colar as Views
+
+--copiar e colar Usuarios
+
+--copiar e colar Povoamento/Inserts
+
+--executar Transacoes
+
+--mostrar selects
+
+--dar permissao para o script
+chmod +x /home/arthur/backup_script.sh
+
+--abrir terminal na pasta e executar script
+./backup_script.sh
+
+--executar o comando de restore ao banco
+
+pg_restore -U postgres -d teste /home/arthur/backup.sql
+psql -U postgres -d teste -f /home/arthur/backup.sql

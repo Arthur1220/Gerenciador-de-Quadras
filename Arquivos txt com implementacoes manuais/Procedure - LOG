@@ -1,0 +1,224 @@
+CREATE TABLE log_changes (
+    id SERIAL PRIMARY KEY,
+    table_name VARCHAR(50),
+    action VARCHAR(10),
+    timestamp TIMESTAMPTZ DEFAULT NOW(),
+    author VARCHAR(50)
+);
+
+-- Criar a trigger procedure
+CREATE OR REPLACE FUNCTION log_changes_trigger_procedure()
+RETURNS TRIGGER AS $$
+DECLARE
+    v_action VARCHAR(10);
+    v_author VARCHAR(50);
+BEGIN
+    -- Verificar o tipo de operação (insert, update ou delete)
+    CASE
+        WHEN TG_OP = 'INSERT' THEN
+            v_action := 'INSERT';
+        WHEN TG_OP = 'UPDATE' THEN
+            v_action := 'UPDATE';
+        WHEN TG_OP = 'DELETE' THEN
+            v_action := 'DELETE';
+    END CASE;
+
+    -- Obter o nome da tabela e o autor da operação
+    v_author := CURRENT_USER;
+
+    -- Inserir a entrada no log_changes
+    INSERT INTO log_changes (table_name, action, timestamp, author)
+    VALUES (TG_TABLE_NAME, v_action, NOW(), v_author);
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Proprietario"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Clube"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Materiais"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Funcionarios"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Evento"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Financeiro"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Clientes"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Aulas"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Reserva"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Quadra"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Problemas"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Professor"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_endereco"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_cidade"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_telefone"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_Turma"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_pessoa"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_pagamento"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoFinanceiro"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."many_TBL_Turma_has_many_TBL_Aulas"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."many_TBL_Clientes_has_many_TBL_Turma"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoProfessor"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoCliente"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoFuncionarios"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoMateriais"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoQuadra"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();
+
+-- Criar a trigger para todas as tabelas
+CREATE TRIGGER log_changes_trigger
+AFTER INSERT OR UPDATE OR DELETE
+ON public."TBL_tipoEvento"
+FOR EACH ROW
+EXECUTE FUNCTION log_changes_trigger_procedure();

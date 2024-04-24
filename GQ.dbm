@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.4" use-changelog="false" last-position="1866,601" last-zoom="0.85" max-obj-count="48"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="quadras" encoding="UTF8" lc-collate="pt_BR.UTF-8" lc-ctype="pt_BR.UTF-8" is-template="false" allow-conns="true">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" layers="0" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="TBL_Proprietario" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3159.8" y="25"/>
+	<column name="ID_Proprietario" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="Proprietario_pk" type="pk-constr" table="public.&quot;TBL_Proprietario&quot;">
+		<columns names="ID_Proprietario" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TBL_Clube" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2946.5" y="1221.11"/>
+	<column name="ID_Clube" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="horarioAbertura" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="horarioFechamento" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="nomeFantasia" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="saldo" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<constraint name="Clube_pk" type="pk-constr" table="public.&quot;TBL_Clube&quot;">
+		<columns names="ID_Clube" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Proprietario_TBL_Proprietario" index="4"/>
+		<object name="ID_endereco_TBL_endereco" index="5"/>
+		<object name="ID_telefone_TBL_telefone" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clube_uq" index="2"/>
+		<object name="TBL_Clube_uq1" index="4"/>
+		<object name="TBL_Proprietario_fk" index="1"/>
+		<object name="TBL_endereco_fk" index="3"/>
+		<object name="TBL_telefone_fk" index="5"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Materiais" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3604.5" y="394.112"/>
+	<column name="ID_Materiais" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="quantidade" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="valorUN" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<constraint name="Materiais_pk" type="pk-constr" table="public.&quot;TBL_Materiais&quot;">
+		<columns names="ID_Materiais" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clube_TBL_Clube" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clube_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Funcionarios" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1984.32" y="1501.93"/>
+	<column name="ID_Funcionarios" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="dataAdmissao" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Funcionarios_pk" type="pk-constr" table="public.&quot;TBL_Funcionarios&quot;">
+		<columns names="ID_Funcionarios" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clube_TBL_Clube" index="2"/>
+		<object name="ID_pessoa_TBL_pessoa" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clube_fk" index="1"/>
+		<object name="TBL_Funcionarios_uq" index="2"/>
+		<object name="TBL_pessoa_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Evento" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3933.92" y="1256.78"/>
+	<column name="ID_Evento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="valor/taxa" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<column name="dataInicio" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="dataFim" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Evento_pk" type="pk-constr" table="public.&quot;TBL_Evento&quot;">
+		<columns names="ID_Evento" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clube_TBL_Clube" index="6"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clube_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Financeiro" layers="0" collapse-mode="2" max-obj-count="12" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2482.49" y="1983.42"/>
+	<column name="ID_Financeiro" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="data" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Financeiro_pk" type="pk-constr" table="public.&quot;TBL_Financeiro&quot;">
+		<columns names="ID_Financeiro" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clientes_TBL_Clientes" index="7"/>
+		<object name="ID_Clube_TBL_Clube" index="4"/>
+		<object name="ID_Evento_TBL_Evento" index="8"/>
+		<object name="ID_Professor_TBL_Professor" index="6"/>
+		<object name="ID_tipoFinanceiro_TBL_tipoFinanceiro" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clientes_fk" index="3"/>
+		<object name="TBL_Clube_fk" index="5"/>
+		<object name="TBL_Evento_fk" index="4"/>
+		<object name="TBL_Professor_fk" index="2"/>
+		<object name="TBL_tipoFinanceiro_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Clientes" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2088.95" y="726.115"/>
+	<column name="ID_Clientes" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="dataAdmissao" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Clientes_pk" type="pk-constr" table="public.&quot;TBL_Clientes&quot;">
+		<columns names="ID_Clientes" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clube_TBL_Clube" index="2"/>
+		<object name="ID_pessoa_TBL_pessoa" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clientes_uq" index="2"/>
+		<object name="TBL_Clube_fk" index="1"/>
+		<object name="TBL_pessoa_fk" index="3"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Aulas" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="4595.41" y="1793.44"/>
+	<column name="ID_Aulas" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="valor" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<column name="horarioInicio" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="horarioFim" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="data" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Aulas_pk" type="pk-constr" table="public.&quot;TBL_Aulas&quot;">
+		<columns names="ID_Aulas" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TBL_Reserva" layers="0" collapse-mode="2" max-obj-count="12" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3339.61" y="1995.22"/>
+	<column name="ID_Reserva" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="data" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="horarioInicio" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="horarioFIm" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="statusPagamento" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="Reserva_pk" type="pk-constr" table="public.&quot;TBL_Reserva&quot;">
+		<columns names="ID_Reserva" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clientes_TBL_Clientes" index="6"/>
+		<object name="ID_Financeiro_TBL_Financeiro" index="5"/>
+		<object name="ID_Quadra_TBL_Quadra" index="7"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clientes_fk" index="3"/>
+		<object name="TBL_Financeiro_fk" index="1"/>
+		<object name="TBL_Quadra_fk" index="4"/>
+		<object name="TBL_Reserva_uq" index="2"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Quadra" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="3922.16" y="839.785"/>
+	<column name="ID_Quadra" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="valor" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<constraint name="Quadra_pk" type="pk-constr" table="public.&quot;TBL_Quadra&quot;">
+		<columns names="ID_Quadra" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clube_TBL_Clube" index="3"/>
+		<object name="ID_tipoQuadra_TBL_tipoQuadra" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clube_fk" index="1"/>
+		<object name="TBL_tipoQuadra_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Problemas" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="4721.39" y="717.512"/>
+	<column name="ID_Problemas" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="character varying" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="character varying" length="100"/>
+	</column>
+	<column name="data" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="statusProblema" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="Problemas_pk" type="pk-constr" table="public.&quot;TBL_Problemas&quot;">
+		<columns names="ID_Problemas" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Quadra_TBL_Quadra" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Quadra_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="TBL_Professor" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2040.27" y="1095.7"/>
+	<column name="ID_Professor" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="dataAdmissao" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Professor_pk" type="pk-constr" table="public.&quot;TBL_Professor&quot;">
+		<columns names="ID_Professor" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Clube_TBL_Clube" index="3"/>
+		<object name="ID_pessoa_TBL_pessoa" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Clube_fk" index="3"/>
+		<object name="TBL_Professor_uq" index="2"/>
+		<object name="TBL_pessoa_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="Clube_has_many_Funcionarios" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#f890be"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Funcionarios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Clube_has_many_Professor" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#86bab0"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Professor&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Clube_has_many_Clientes" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#54e3a8"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Clientes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Clube_has_one_Proprietario" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#45bca2"
+	 src-table="public.&quot;TBL_Proprietario&quot;"
+	 dst-table="public.&quot;TBL_Clube&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Clube_has_many_Materiais" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#59a386"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Materiais&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Clube_has_many_Quadra" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3a8e64"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Quadra&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Clube_has_many_Evento" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a2840f"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Evento&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="Quadra_has_many_Problemas" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#52db12"
+	 src-table="public.&quot;TBL_Quadra&quot;"
+	 dst-table="public.&quot;TBL_Problemas&quot;"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<table name="TBL_endereco" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1499.36" y="86.136"/>
+	<column name="ID_endereco" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="CEP" not-null="true">
+		<type name="numeric" length="8"/>
+	</column>
+	<column name="rua" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="numero" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="bairro" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="endereco_pk" type="pk-constr" table="public.&quot;TBL_endereco&quot;">
+		<columns names="ID_endereco" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_cidade_TBL_cidade" index="5"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_cidade_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="TBL_cidade" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="962.57" y="153.136"/>
+	<column name="ID_cidade" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="cidade" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="estado" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="cidade_pk" type="pk-constr" table="public.&quot;TBL_cidade&quot;">
+		<columns names="ID_cidade" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TBL_telefone" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1539.86" y="413.572"/>
+	<column name="ID_telefone" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="ddd" not-null="true">
+		<type name="numeric" length="3"/>
+	</column>
+	<column name="telefone" not-null="true">
+		<type name="numeric" length="9"/>
+	</column>
+	<constraint name="telefone_pk" type="pk-constr" table="public.&quot;TBL_telefone&quot;">
+		<columns names="ID_telefone" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TBL_Turma" layers="0" collapse-mode="2" max-obj-count="1" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="4008.74" y="2031.4"/>
+	<column name="ID_Turma" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<constraint name="Turma_pk" type="pk-constr" table="public.&quot;TBL_Turma&quot;">
+		<columns names="ID_Turma" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TBL_pessoa" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2125.41" y="226.588"/>
+	<column name="ID_pessoa" not-null="true">
+		<type name="numeric" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="155"/>
+	</column>
+	<column name="dataNascimento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="varchar" length="155"/>
+	</column>
+	<column name="CPF" not-null="true">
+		<type name="varchar" length="14"/>
+	</column>
+	<constraint name="TBL_pessoa_pk" type="pk-constr" table="public.&quot;TBL_pessoa&quot;">
+		<columns names="ID_pessoa" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_cidade_has_many_TBL_endereco" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5f33b7"
+	 src-table="public.&quot;TBL_cidade&quot;"
+	 dst-table="public.&quot;TBL_endereco&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_pessoa_has_one_TBL_Proprietario" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a21e37"
+	 src-table="public.&quot;TBL_Proprietario&quot;"
+	 dst-table="public.&quot;TBL_pessoa&quot;"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="TBL_pessoa_has_one_Clientes" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d0972b"
+	 src-table="public.&quot;TBL_Clientes&quot;"
+	 dst-table="public.&quot;TBL_pessoa&quot;"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="TBL_pessoa_has_one_Professor" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#bc74bf"
+	 src-table="public.&quot;TBL_Professor&quot;"
+	 dst-table="public.&quot;TBL_pessoa&quot;"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="TBL_pessoa_has_one_Funcionarios" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#99f5ed"
+	 src-table="public.&quot;TBL_Funcionarios&quot;"
+	 dst-table="public.&quot;TBL_pessoa&quot;"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="TBL_endereco_has_one_TBL_Clube" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#0fd1a4"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_endereco&quot;"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="TBL_telefone_has_many_TBL_Clube" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d9aaa4"
+	 src-table="public.&quot;TBL_telefone&quot;"
+	 dst-table="public.&quot;TBL_Clube&quot;"
+	 src-required="true" dst-required="false"/>
+
+<table name="TBL_pagamento" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2846.21" y="2473.08"/>
+	<column name="ID_pagamento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="valor" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<column name="statusPagamento" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="TBL_pagamento_pk" type="pk-constr" table="public.&quot;TBL_pagamento&quot;">
+		<columns names="ID_pagamento" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_Financeiro_TBL_Financeiro" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TBL_Financeiro_fk" index="1"/>
+		<object name="TBL_pagamento_uq" index="2"/>
+	</customidxs>
+</table>
+
+<table name="TBL_tipoFinanceiro" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="2155.3" y="2454.9"/>
+	<column name="ID_tipoFinanceiro" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="155"/>
+	</column>
+	<constraint name="TBL_tipoFinanceiro_pk" type="pk-constr" table="public.&quot;TBL_tipoFinanceiro&quot;">
+		<columns names="ID_tipoFinanceiro" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoFinanceiro_has_many_TBL_Financeiro" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#dfdffb"
+	 src-table="public.&quot;TBL_tipoFinanceiro&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-3.55033" y="-8.59545"/>
+	</label>
+</relationship>
+
+<relationship name="TBL_pagamento_has_one_TBL_Financeiro" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6edd67"
+	 src-table="public.&quot;TBL_Financeiro&quot;"
+	 dst-table="public.&quot;TBL_pagamento&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="TBL_Clube_has_many_TBL_Financeiro" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#985f4b"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="true" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="TBL_Financeiro_has_one_TBL_Reserva" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#79a3ea"
+	 src-table="public.&quot;TBL_Reserva&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="false" dst-required="true"/>
+
+<relationship name="TBL_Clientes_has_many_TBL_Reserva" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1dc80f"
+	 src-table="public.&quot;TBL_Clientes&quot;"
+	 dst-table="public.&quot;TBL_Reserva&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="TBL_Quadra_has_many_TBL_Reserva" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7f75ef"
+	 src-table="public.&quot;TBL_Quadra&quot;"
+	 dst-table="public.&quot;TBL_Reserva&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="TBL_Clube_has_many_TBL_Reserva" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#2720ff"
+	 src-table="public.&quot;TBL_Clube&quot;"
+	 dst-table="public.&quot;TBL_Reserva&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="TBL_Quadra_has_many_TBL_Aulas" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#af385e"
+	 src-table="public.&quot;TBL_Quadra&quot;"
+	 dst-table="public.&quot;TBL_Aulas&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="TBL_Professor_has_many_TBL_Aulas" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#dad572"
+	 src-table="public.&quot;TBL_Professor&quot;"
+	 dst-table="public.&quot;TBL_Aulas&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="many_TBL_Turma_has_many_TBL_Aulas" type="relnn" layers="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#343ff4"
+	 src-table="public.&quot;TBL_Turma&quot;"
+	 dst-table="public.&quot;TBL_Aulas&quot;"
+	 src-required="false" dst-required="false"
+	 table-name="many_TBL_Turma_has_many_TBL_Aulas"/>
+
+<relationship name="TBL_Materiais_has_many_TBL_Aulas" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d4cbe8"
+	 src-table="public.&quot;TBL_Materiais&quot;"
+	 dst-table="public.&quot;TBL_Aulas&quot;"
+	 src-required="true" dst-required="false"/>
+
+<relationship name="many_TBL_Clientes_has_many_TBL_Turma" type="relnn" layers="0"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#3417fd"
+	 src-table="public.&quot;TBL_Clientes&quot;"
+	 dst-table="public.&quot;TBL_Turma&quot;"
+	 src-required="false" dst-required="false"
+	 table-name="many_TBL_Clientes_has_many_TBL_Turma"/>
+
+<relationship name="TBL_pessoa_has_one_TBL_endereco" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#92742d"
+	 src-table="public.&quot;TBL_endereco&quot;"
+	 dst-table="public.&quot;TBL_pessoa&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_pessoa_has_one_TBL_telefone" type="rel11" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7196f0"
+	 src-table="public.&quot;TBL_telefone&quot;"
+	 dst-table="public.&quot;TBL_pessoa&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_Evento_has_many_TBL_Financeiro" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1deeff"
+	 src-table="public.&quot;TBL_Evento&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_Clientes_has_many_TBL_Financeiro" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#c9ee53"
+	 src-table="public.&quot;TBL_Clientes&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_Professor_has_many_TBL_Financeiro" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9c7ddc"
+	 src-table="public.&quot;TBL_Professor&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_Funcionarios_has_many_TBL_Financeiro" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#731337"
+	 src-table="public.&quot;TBL_Funcionarios&quot;"
+	 dst-table="public.&quot;TBL_Financeiro&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="TBL_Materiais_has_many_TBL_Reserva" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#59b5e5"
+	 src-table="public.&quot;TBL_Materiais&quot;"
+	 dst-table="public.&quot;TBL_Reserva&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TBL_tipoProfessor" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1400" y="1152.34"/>
+	<column name="ID_tipoProfessor" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="salario" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<constraint name="TBL_tipoProfessor___pk" type="pk-constr" table="public.&quot;TBL_tipoProfessor&quot;">
+		<columns names="ID_tipoProfessor" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoProfessor_has_many_TBL_Professor" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6c5be8"
+	 src-table="public.&quot;TBL_tipoProfessor&quot;"
+	 dst-table="public.&quot;TBL_Professor&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TBL_tipoCliente" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1448" y="770"/>
+	<column name="ID_tipoCliente" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="dataVencimento" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="valorMensalidade" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<constraint name="TBL_tipoClient_pk" type="pk-constr" table="public.&quot;TBL_tipoCliente&quot;">
+		<columns names="ID_tipoCliente" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoCliente_has_many_TBL_Clientes" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#90961a"
+	 src-table="public.&quot;TBL_tipoCliente&quot;"
+	 dst-table="public.&quot;TBL_Clientes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TBL_tipoFuncionarios" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1307" y="1544"/>
+	<column name="ID_tipoFuncionarios" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="salario" not-null="true">
+		<type name="numeric" length="10" precision="2"/>
+	</column>
+	<constraint name="TBL_tipoFuncionario_pk" type="pk-constr" table="public.&quot;TBL_tipoFuncionarios&quot;">
+		<columns names="ID_tipoFuncionarios" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoFuncionarios_has_many_TBL_Funcionarios" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#fdcc3b"
+	 src-table="public.&quot;TBL_tipoFuncionarios&quot;"
+	 dst-table="public.&quot;TBL_Funcionarios&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TBL_tipoMateriais" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="4364.71" y="432.941"/>
+	<column name="ID_tipoMateriais" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="TBL_tipoMateriai_pk" type="pk-constr" table="public.&quot;TBL_tipoMateriais&quot;">
+		<columns names="ID_tipoMateriais" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoMateriais_has_many_TBL_Materiais" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#32a0dd"
+	 src-table="public.&quot;TBL_tipoMateriais&quot;"
+	 dst-table="public.&quot;TBL_Materiais&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TBL_tipoQuadra" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="4765.88" y="1016.47"/>
+	<column name="ID_tipoQuadra" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="TBL_tipoQuadr_pk" type="pk-constr" table="public.&quot;TBL_tipoQuadra&quot;">
+		<columns names="ID_tipoQuadra" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoQuadr_has_many_TBL_Quadra" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1975bf"
+	 src-table="public.&quot;TBL_tipoQuadra&quot;"
+	 dst-table="public.&quot;TBL_Quadra&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="TBL_tipoEvento" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="4792.94" y="1280"/>
+	<column name="ID_tipoEvento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="desc" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="TBL_tipoEvent_pk" type="pk-constr" table="public.&quot;TBL_tipoEvento&quot;">
+		<columns names="ID_tipoEvento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="TBL_tipoEvento_has_many_TBL_Evento" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a2df62"
+	 src-table="public.&quot;TBL_tipoEvento&quot;"
+	 dst-table="public.&quot;TBL_Evento&quot;"
+	 src-required="false" dst-required="false"/>
+
+<permission>
+	<object name="public" type="schema"/>
+	<roles names="postgres"/>
+	<privileges create="true" usage="true"/>
+</permission>
+<permission>
+	<object name="public" type="schema"/>
+	<privileges create="true" usage="true"/>
+</permission>
+</dbmodel>

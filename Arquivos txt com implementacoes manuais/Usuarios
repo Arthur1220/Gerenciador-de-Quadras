@@ -1,0 +1,124 @@
+--Role gerenciadorAdm
+CREATE ROLE gerenciadorAdm;
+
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Proprietario" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Clube" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Materiais" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Funcionarios" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Evento" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Financeiro" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Clientes" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Aulas" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Reserva" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Quadra" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Problemas" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Professor" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_endereco" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_cidade" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_telefone" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Turma" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_pessoa" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_pagamento" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoFinanceiro" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."many_TBL_Turma_has_many_TBL_Aulas" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."many_TBL_Clientes_has_many_TBL_Turma" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoProfessor" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoCliente" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoFuncionarios" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoMateriais" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoQuadra" TO gerenciadorAdm;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoEvento" TO gerenciadorAdm;
+
+CREATE USER user_adm WITH PASSWORD 'adm';
+
+GRANT gerenciadorAdm TO user_adm;
+
+--Role gerenciadorCliente
+CREATE ROLE gerenciadorCliente;
+
+GRANT SELECT, INSERT, UPDATE ON public."TBL_pessoa" TO gerenciadorCliente;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_endereco" TO gerenciadorCliente;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_cidade" TO gerenciadorCliente;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_telefone" TO gerenciadorCliente;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Clientes" TO gerenciadorCliente;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoCliente" TO gerenciadorCliente;
+
+CREATE USER user_cliente WITH PASSWORD 'cliente';
+
+GRANT gerenciadorCliente TO user_cliente;
+
+--Role gerenciadorEquipe
+CREATE ROLE gerenciadorEquipe;
+
+GRANT SELECT, INSERT, UPDATE ON public."TBL_pessoa" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_endereco" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_cidade" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_telefone" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Funcionarios" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_Professor" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoFuncionarios" TO gerenciadorEquipe;
+GRANT SELECT, INSERT, UPDATE ON public."TBL_tipoProfessor" TO gerenciadorEquipe;
+
+CREATE USER user_equipe WITH PASSWORD 'equipe';
+
+GRANT gerenciadorEquipe TO user_equipe;
+
+--Role gerenciadorClube
+CREATE ROLE gerenciadorClube;
+
+GRANT SELECT, INSERT, UPDATE ON "TBL_Proprietario" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Clube" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Materiais" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Evento" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Financeiro" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Aulas" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Reserva" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Quadra" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Problemas" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_Turma" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_pagamento" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_tipoFinanceiro" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "many_TBL_Turma_has_many_TBL_Aulas" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "many_TBL_Clientes_has_many_TBL_Turma" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_tipoMateriais" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_tipoQuadra" TO gerenciadorClube;
+GRANT SELECT, INSERT, UPDATE ON "TBL_tipoEvento" TO gerenciadorClube;
+
+CREATE USER user_clube WITH PASSWORD 'clube';
+
+GRANT gerenciadorClube TO user_clube;
+
+--Role gerenciadorVisualizador
+CREATE ROLE gerenciadorVisualizador;
+
+GRANT SELECT ON public."TBL_Proprietario" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Clube" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Materiais" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Funcionarios" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Evento" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Financeiro" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Clientes" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Aulas" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Reserva" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Quadra" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Problemas" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Professor" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_endereco" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_cidade" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_telefone" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_Turma" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_pessoa" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_pagamento" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoFinanceiro" TO gerenciadorVisualizador;
+GRANT SELECT ON public."many_TBL_Turma_has_many_TBL_Aulas" TO gerenciadorVisualizador;
+GRANT SELECT ON public."many_TBL_Clientes_has_many_TBL_Turma" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoProfessor" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoCliente" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoFuncionarios" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoMateriais" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoQuadra" TO gerenciadorVisualizador;
+GRANT SELECT ON public."TBL_tipoEvento" TO gerenciadorVisualizador;
+
+CREATE USER user_visualizador WITH PASSWORD 'visualizador';
+
+GRANT gerenciadorVisualizador TO user_visualizador;

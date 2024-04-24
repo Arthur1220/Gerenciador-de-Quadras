@@ -1,0 +1,51 @@
+-- function
+
+--function para formatar horario
+CREATE OR REPLACE FUNCTION formatar_data_br(data_input TIMESTAMP WITH TIME ZONE)
+RETURNS TEXT AS
+$$
+DECLARE
+    data_output TEXT;
+BEGIN
+    SELECT TO_CHAR(data_input AT TIME ZONE 'America/Bahia', 'DD/MM/YYYY HH24:MI:SS') INTO data_output;
+    RETURN data_output;
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT "ID_pessoa", nome, formatar_data_br("dataNascimento") AS data_formatada, email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone"
+FROM public."TBL_pessoa";
+
+--function para formatar telefone
+CREATE OR REPLACE FUNCTION formatar_telefone(ddd numeric, telefone numeric)
+RETURNS varchar AS
+$$
+DECLARE
+    ddd_str varchar := lpad(ddd::text, 3, '0');
+    telefone_str varchar := lpad(telefone::text, 9, '0');
+BEGIN
+    RETURN '(' || ddd_str || ') ' || substr(telefone_str, 1, 5) || '-' || right(telefone_str, 4);
+END;
+$$
+LANGUAGE plpgsql;
+
+SELECT "ID_telefone", ddd, telefone, formatar_telefone(ddd, telefone) AS telefone_formatado
+FROM public."TBL_telefone";
+
+
+--function para forrmatar o cep
+CREATE OR REPLACE FUNCTION formatar_cep(cep numeric)
+RETURNS varchar AS
+$$
+DECLARE
+    cep_str varchar := lpad(cep::text, 8, '0');
+BEGIN
+    RETURN substr(cep_str, 1, 5) || '-' || right(cep_str, 3);
+END;
+$$
+LANGUAGE plpgsql;
+
+
+SELECT "ID_endereco", formatar_cep("CEP") AS cep_formatado
+FROM public."TBL_endereco";
+

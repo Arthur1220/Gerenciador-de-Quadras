@@ -1,0 +1,58 @@
+select * from "TBL_Proprietario";
+select * from "TBL_Clube";
+select * from "TBL_Materiais";
+select * from "TBL_Funcionarios";
+select * from "TBL_Evento";
+select * from "TBL_Financeiro";
+select * from "TBL_Clientes";
+select * from "TBL_Aulas";
+select * from "TBL_Reserva";
+select * from "TBL_Quadra";
+select * from "TBL_Problemas";
+select * from "TBL_Professor";
+select * from "TBL_endereco";
+select * from "TBL_cidade";
+select * from "TBL_telefone";
+select * from "TBL_Turma";
+select * from "TBL_pessoa";
+select * from "TBL_pagamento";
+select * from "TBL_tipoFinanceiro";
+select * from "many_TBL_Turma_has_many_TBL_Aulas";
+select * from "many_TBL_Clientes_has_many_TBL_Turma";
+select * from "TBL_tipoProfessor";
+select * from "TBL_tipoCliente";
+select * from "TBL_tipoFuncionarios";
+select * from "TBL_tipoMateriais";
+select * from "TBL_tipoQuadra";
+select * from "TBL_tipoEvento";
+
+select * from "log_change";
+
+SELECT * FROM view_pessoa_informacoes_completas;
+SELECT * FROM "VW_pessoa_idade";
+SELECT * FROM "VW_clientes_idade";
+SELECT * FROM "VW_PessoaInfo";
+SELECT * FROM "VW_funcionarios_salario";
+SELECT * FROM "VW_professor_salario";
+SELECT * FROM "VW_mensalidades";
+SELECT * FROM "VW_FuncionarioInfo";
+
+
+SELECT p."ID_pessoa", p.nome, formatar_data_br(p."dataNascimento") AS data_nascimento_formatada, p.email, p."CPF",
+       formatar_cep(e."CEP") AS cep_formatado, e.rua, e.numero, e.bairro,
+       c.cidade, c.estado,
+       t.ddd, t.telefone, formatar_telefone(t.ddd, t.telefone) AS telefone_formatado
+FROM public."TBL_pessoa" p
+LEFT JOIN public."TBL_endereco" e ON p."ID_endereco_TBL_endereco" = e."ID_endereco"
+LEFT JOIN public."TBL_cidade" c ON e."ID_cidade_TBL_cidade" = c."ID_cidade"
+LEFT JOIN public."TBL_telefone" t ON p."ID_telefone_TBL_telefone" = t."ID_telefone";
+
+
+SELECT "ID_pessoa", nome, formatar_data_br("dataNascimento") AS data_formatada, email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone"
+FROM public."TBL_pessoa";
+
+SELECT "ID_telefone", ddd, telefone, formatar_telefone(ddd, telefone) AS telefone_formatado
+FROM public."TBL_telefone";
+
+SELECT "ID_endereco", formatar_cep("CEP") AS cep_formatado
+FROM public."TBL_endereco";

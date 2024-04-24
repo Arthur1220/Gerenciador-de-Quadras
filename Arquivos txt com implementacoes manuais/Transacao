@@ -1,0 +1,27 @@
+--processo de +500
+BEGIN; -- Iniciar a transação
+
+UPDATE public."TBL_Clube" SET saldo = saldo + 500.00 WHERE "ID_Clube" = 1; -- Adiciona 500.00 ao saldo do clube com ID_Clube = 1
+
+COMMIT; -- Confirmar a transação e aplicar as alterações permanentemente
+
+-- processo de -500
+BEGIN; -- Iniciar a transação
+
+UPDATE public."TBL_Clube" SET saldo = saldo - 500.00 WHERE "ID_Clube" = 1; -- Adiciona 500.00 ao saldo do clube com ID_Clube = 1
+
+COMMIT; -- Confirmar a transação e aplicar as alterações permanentemente
+
+-- processo de -500
+BEGIN; -- Iniciar a transação
+
+UPDATE public."TBL_Clube" SET saldo = saldo - 500.00 WHERE "ID_Clube" = 1; -- Adiciona 500.00 ao saldo do clube com ID_Clube = 1
+
+COMMIT; -- Confirmar a transação e aplicar as alterações permanentemente
+
+-- processo de -500
+BEGIN; -- Iniciar a transação
+
+UPDATE public."TBL_Clube" SET saldo = saldo - 500.00 WHERE "ID_Clube" = 1; -- Adiciona 500.00 ao saldo do clube com ID_Clube = 1
+
+COMMIT; -- Confirmar a transação e aplicar as alterações permanentemente

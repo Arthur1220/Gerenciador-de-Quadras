@@ -1,0 +1,115 @@
+--Views
+
+--View para visualizar a idade da pessoa, sem utilizar a funcao AGE
+CREATE OR REPLACE VIEW "VW_pessoa_idade" AS
+SELECT 
+    "ID_pessoa",
+    nome,
+    "dataNascimento",
+    email,
+    "CPF",
+    "ID_endereco_TBL_endereco",
+    "ID_telefone_TBL_telefone",
+    EXTRACT(YEAR FROM AGE(CURRENT_DATE, "TBL_pessoa"."dataNascimento")) AS anos,
+    EXTRACT(MONTH FROM AGE(CURRENT_DATE, "TBL_pessoa"."dataNascimento")) % 12 AS meses,
+    EXTRACT(DAY FROM AGE(CURRENT_DATE, "TBL_pessoa"."dataNascimento")) AS dias
+FROM "TBL_pessoa";
+
+--view para visualizar apenas idade dos clientes
+CREATE OR REPLACE VIEW "VW_clientes_idade" AS
+SELECT 
+	c."ID_Clientes", 
+	p.nome, 
+	p."dataNascimento", 
+	AGE(p."dataNascimento") AS idade
+FROM public."TBL_Clientes" c
+JOIN public."TBL_pessoa" p ON c."ID_pessoa_TBL_pessoa" = p."ID_pessoa";
+
+--view para visualizar apenas idade dos funcionarios e professores
+CREATE VIEW public."VW_PessoaInfo" AS
+SELECT
+    p.nome AS nome_pessoa,
+    CASE
+        WHEN f."ID_Funcionarios" IS NOT NULL THEN 'Funcionário'
+        WHEN pr."ID_Professor" IS NOT NULL THEN 'Professor'
+        ELSE 'N/A'
+    END AS tipo_pessoa,
+    p."dataNascimento",
+    AGE(CURRENT_DATE, p."dataNascimento") AS idade
+FROM public."TBL_pessoa" p
+LEFT JOIN public."TBL_Funcionarios" f ON f."ID_pessoa_TBL_pessoa" = p."ID_pessoa"
+LEFT JOIN public."TBL_Professor" pr ON pr."ID_pessoa_TBL_pessoa" = p."ID_pessoa"
+WHERE f."ID_Funcionarios" IS NOT NULL OR pr."ID_Professor" IS NOT NULL;
+
+--view para visualizar nome e salario de funcioario
+CREATE OR REPLACE VIEW "VW_funcionarios_salario" AS
+SELECT 
+    p.nome AS nome_funcionario,
+    tf.salario,
+    f."dataAdmissao",
+    tf.nome AS funcao
+FROM
+    public."TBL_Funcionarios" f
+JOIN
+    public."TBL_tipoFuncionarios" tf ON f."ID_tipoFuncionarios_TBL_tipoFuncionarios" = tf."ID_tipoFuncionarios"
+JOIN
+    public."TBL_pessoa" p ON f."ID_pessoa_TBL_pessoa" = p."ID_pessoa";
+
+--view para visualizar nome e salario de professores
+CREATE OR REPLACE VIEW "VW_professor_salario" AS
+SELECT 
+    p.nome AS nome_professor,
+    tpr.salario,
+    pr."dataAdmissao",
+    tpr.nome AS funcao
+FROM
+    public."TBL_Professor" pr
+JOIN
+    public."TBL_tipoProfessor" tpr ON pr."ID_tipoProfessor_TBL_tipoProfessor" = tpr."ID_tipoProfessor"
+JOIN
+    public."TBL_pessoa" p ON pr."ID_pessoa_TBL_pessoa" = p."ID_pessoa";
+
+--view com funcao para mostrar ganhos fixos
+CREATE VIEW public."VW_mensalidades" AS
+SELECT
+    p.nome AS nome_cliente,
+    c."dataAdmissao",
+    SUM(tc."valorMensalidade") AS total_mensalidade
+FROM public."TBL_Clientes" c
+INNER JOIN public."TBL_tipoCliente" tc ON tc."ID_tipoCliente" = c."ID_tipoCliente_TBL_tipoCliente"
+INNER JOIN public."TBL_pessoa" p ON p."ID_pessoa" = c."ID_pessoa_TBL_pessoa"
+GROUP BY p.nome, c."dataAdmissao";
+
+--view com funcao para mostrar salarios fixos
+CREATE VIEW public."VW_FuncionarioInfo" AS
+SELECT
+    p.nome AS nome_funcionario,
+    CASE
+        WHEN f."ID_Funcionarios" IS NOT NULL THEN tf.nome
+        WHEN pr."ID_Professor" IS NOT NULL THEN tp.nome
+        ELSE 'N/A'
+    END AS funcao,
+    CASE
+        WHEN f."ID_Funcionarios" IS NOT NULL THEN tf.salario
+        WHEN pr."ID_Professor" IS NOT NULL THEN tp.salario
+        ELSE 0
+    END AS salario
+FROM public."TBL_pessoa" p
+LEFT JOIN public."TBL_Funcionarios" f ON f."ID_pessoa_TBL_pessoa" = p."ID_pessoa"
+LEFT JOIN public."TBL_Professor" pr ON pr."ID_pessoa_TBL_pessoa" = p."ID_pessoa"
+LEFT JOIN public."TBL_tipoFuncionarios" tf ON tf."ID_tipoFuncionarios" = f."ID_tipoFuncionarios_TBL_tipoFuncionarios"
+LEFT JOIN public."TBL_tipoProfessor" tp ON tp."ID_tipoProfessor" = pr."ID_tipoProfessor_TBL_tipoProfessor"
+WHERE f."ID_Funcionarios" IS NOT NULL OR pr."ID_Professor" IS NOT NULL;
+
+--view para mostrar as informacoes completas das pessoas cadastradas no sistema
+CREATE OR REPLACE VIEW public.view_pessoa_informacoes_completas AS
+SELECT p."ID_pessoa", p.nome, formatar_data_br(p."dataNascimento") AS data_nascimento_formatada, p.email, p."CPF",
+       formatar_cep(e."CEP") AS cep_formatado, e.rua, e.numero, e.bairro,
+       c.cidade, c.estado,
+       t.ddd, t.telefone, formatar_telefone(t.ddd, t.telefone) AS telefone_formatado
+FROM public."TBL_pessoa" p
+LEFT JOIN public."TBL_endereco" e ON p."ID_endereco_TBL_endereco" = e."ID_endereco"
+LEFT JOIN public."TBL_cidade" c ON e."ID_cidade_TBL_cidade" = c."ID_cidade"
+LEFT JOIN public."TBL_telefone" t ON p."ID_telefone_TBL_telefone" = t."ID_telefone";
+
+

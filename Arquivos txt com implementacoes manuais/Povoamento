@@ -1,0 +1,220 @@
+--telefone
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (1, 11, 987654321);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (2, 21, 123456789);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (3, 31, 555555555);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (4, 41, 777777777);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (5, 51, 999999999);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (6, 61, 111111111);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (7, 71, 222222222);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (8, 81, 333333333);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (9, 91, 444444444);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (10, 12, 777777777);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (11, 22, 888888888);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (12, 32, 555555555);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (13, 42, 333333333);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (14, 52, 222222222);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (15, 62, 111111111);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (16, 72, 999999999);
+INSERT INTO "TBL_telefone" ("ID_telefone", ddd, telefone) VALUES (17, 82, 888888888);
+
+--cidade
+INSERT INTO "TBL_cidade" ("ID_cidade", cidade, estado) VALUES (1, 'São Paulo', 'São Paulo');
+INSERT INTO "TBL_cidade" ("ID_cidade", cidade, estado) VALUES (2, 'Rio de Janeiro', 'Rio de Janeiro');
+INSERT INTO "TBL_cidade" ("ID_cidade", cidade, estado) VALUES (3, 'Belo Horizonte', 'Minas Gerais');
+INSERT INTO "TBL_cidade" ("ID_cidade", cidade, estado) VALUES (4, 'Porto Alegre', 'Rio Grande do Sul');
+INSERT INTO "TBL_cidade" ("ID_cidade", cidade, estado) VALUES (5, 'Salvador', 'Bahia');
+
+--endereco
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (1, 12345678, 'Rua A', 123, 'Bairro X', 1);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (2, 23456789, 'Rua B', 456, 'Bairro Y', 2);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (3, 34567890, 'Rua C', 789, 'Bairro Z', 3);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (4, 45678901, 'Rua D', 111, 'Bairro X', 1);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (5, 56789012, 'Rua E', 222, 'Bairro Y', 2);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (6, 67890123, 'Rua F', 333, 'Bairro Z', 3);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (7, 78901234, 'Rua G', 444, 'Bairro X', 1);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (8, 89012345, 'Rua H', 555, 'Bairro Y', 2);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (9, 90123456, 'Rua I', 666, 'Bairro Z', 3);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (10, 12345000, 'Rua J', 777, 'Bairro X', 1);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (11, 23456000, 'Rua K', 888, 'Bairro Y', 2);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (12, 34567000, 'Rua L', 999, 'Bairro Z', 3);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (13, 45678000, 'Rua M', 111, 'Bairro X', 1);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (14, 56789000, 'Rua N', 222, 'Bairro Y', 2);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (15, 67890000, 'Rua O', 333, 'Bairro Z', 3);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (16, 78901000, 'Rua P', 444, 'Bairro X', 1);
+INSERT INTO "TBL_endereco" ("ID_endereco", "CEP", rua, numero, bairro, "ID_cidade_TBL_cidade") VALUES (17, 89012000, 'Rua Q', 555, 'Bairro Y', 2);
+
+--Pessoa
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (1, 'João Silva', '1990-01-01', 'joao@example.com', '123.456.789-00', 1, 1);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (2, 'Maria Santos', '1985-05-10', 'maria@example.com', '987.654.321-00', 2, 2);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (3, 'Pedro Almeida', '1992-07-15', 'pedro@example.com', '456.789.123-00', 3, 3);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (4, 'Ana Souza', '1988-12-30', 'ana@example.com', '321.654.987-00', 4, 4);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (5, 'Luiz Ferreira', '1995-03-20', 'luiz@example.com', '789.123.456-00', 5, 5);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (6, 'Carolina Mendes', '1991-09-18', 'carolina@example.com', '654.987.321-00', 6, 6);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (7, 'José Oliveira', '1986-06-12', 'jose@example.com', '789.321.654-00', 7, 7);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (8, 'Amanda Costa', '1994-11-05', 'amanda@example.com', '321.789.654-00', 8, 8);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (9, 'Carlos Santos', '1998-02-25', 'carlos@example.com', '123.987.654-00', 9, 9);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (10, 'Patricia Lima', '1993-04-14', 'patricia@example.com', '987.321.654-00', 10, 10);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (11, 'Ricardo Pereira', '1987-08-08', 'ricardo@example.com', '456.123.789-00', 11, 11);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (12, 'Fernanda Silva', '1996-06-03', 'fernanda@example.com', '789.456.123-00', 12, 12);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (13, 'Gustavo Martins', '1999-10-22', 'gustavo@example.com', '321.789.456-00', 13, 13);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (14, 'Juliana Lima', '1992-12-07', 'juliana@example.com', '987.321.789-00', 14, 14);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (15, 'Marcos Oliveira', '1989-02-15', 'marcos@example.com', '456.789.321-00', 15, 15);
+INSERT INTO "TBL_pessoa" ("ID_pessoa", nome, "dataNascimento", email, "CPF", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone") VALUES (16, 'Laura Fernandes', '1997-07-29', 'laura@example.com', '789.123.456-00', 16, 16);
+
+--Proprietario
+INSERT INTO "TBL_Proprietario" ("ID_Proprietario", "ID_pessoa_TBL_pessoa") VALUES (1, 1);
+
+--Clube
+INSERT INTO "TBL_Clube" ("ID_Clube", "horarioAbertura", "horarioFechamento", "nomeFantasia", "ID_Proprietario_TBL_Proprietario", "ID_endereco_TBL_endereco", "ID_telefone_TBL_telefone", saldo) VALUES (1, '08:00:00', '18:00:00', 'Clube A', 1, 17, 17, 0);
+
+--tipoQuadra
+INSERT INTO "TBL_tipoQuadra" ("ID_tipoQuadra", nome, "desc") VALUES (1, 'Quadra de Tênis', 'Quadra para prática de tênis.');
+INSERT INTO "TBL_tipoQuadra" ("ID_tipoQuadra", nome, "desc") VALUES (2, 'Quadra de Futebol', 'Quadra para prática de futebol.');
+INSERT INTO "TBL_tipoQuadra" ("ID_tipoQuadra", nome, "desc") VALUES (3, 'Quadra de Basquete', 'Quadra para prática de basquete.');
+INSERT INTO "TBL_tipoQuadra" ("ID_tipoQuadra", nome, "desc") VALUES (4, 'Quadra de Vôlei', 'Quadra para prática de vôlei.');
+
+--Quadra
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (1, 'Quadra 1', 50.00, 1, 1);
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (2, 'Quadra 2', 60.00, 1, 2);
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (3, 'Quadra 3', 70.00, 1, 1);
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (4, 'Quadra 4', 80.00, 1, 3);
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (5, 'Quadra 5', 90.00, 1, 2);
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (6, 'Quadra 6', 100.00, 1, 4);
+INSERT INTO "TBL_Quadra" ("ID_Quadra", nome, valor, "ID_Clube_TBL_Clube", "ID_tipoQuadra_TBL_tipoQuadra") VALUES (7, 'Quadra 7', 110.00, 1, 3);
+
+--problemas
+INSERT INTO "TBL_Problemas" ("ID_Problemas", nome, "desc", data, "statusProblema", "ID_Quadra_TBL_Quadra") VALUES (1, 'Vazamento na quadra', 'Há um vazamento de água na quadra 1.', '2023-05-26', true, 1);
+INSERT INTO "TBL_Problemas" ("ID_Problemas", nome, "desc", data, "statusProblema", "ID_Quadra_TBL_Quadra") VALUES (2, 'Lâmpadas queimadas', 'Algumas lâmpadas da quadra 2 estão queimadas.', '2023-05-26', false, 2);
+
+--tipoMateriais
+INSERT INTO "TBL_tipoMateriais" ("ID_tipoMateriais", nome, "desc") VALUES (1, 'Redes', 'Redes para utilização nas quadras.');
+INSERT INTO "TBL_tipoMateriais" ("ID_tipoMateriais", nome, "desc") VALUES (2, 'Bolas', 'Bolas para prática de esportes nas quadras.');
+INSERT INTO "TBL_tipoMateriais" ("ID_tipoMateriais", nome, "desc") VALUES (3, 'Raquetes', 'Raquetes para uso nas quadras de tênis.');
+INSERT INTO "TBL_tipoMateriais" ("ID_tipoMateriais", nome, "desc") VALUES (4, 'Uniformes', 'Uniformes para equipes esportivas nas quadras.');
+INSERT INTO "TBL_tipoMateriais" ("ID_tipoMateriais", nome, "desc") VALUES (5, 'Chaveiros', 'Chaveiros personalizados do clube.');
+INSERT INTO "TBL_tipoMateriais" ("ID_tipoMateriais", nome, "desc") VALUES (6, 'Toalhas', 'Toalhas para uso nos vestiários do clube.');
+
+--Materiais
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (1, 50, 10.00, 1, 1);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (2, 20, 25.00, 1, 2);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (3, 10, 50.00, 1, 1);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (4, 30, 15.00, 1, 3);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (5, 40, 5.00, 1, 2);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (6, 15, 12.00, 1, 4);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (7, 25, 8.00, 1, 1);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (8, 12, 18.00, 1, 5);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (9, 8, 20.00, 1, 3);
+INSERT INTO "TBL_Materiais" ("ID_Materiais", quantidade, "valorUN", "ID_Clube_TBL_Clube", "ID_tipoMateriais_TBL_tipoMateriais") VALUES (10, 5, 30.00, 1, 6);
+
+--tipoClientes
+INSERT INTO "TBL_tipoCliente" ("ID_tipoCliente", nome, "desc", "dataVencimento", "valorMensalidade") VALUES (1, 'Cliente Regular', 'Cliente comum do clube', '2023-05-31', 100.00);
+INSERT INTO "TBL_tipoCliente" ("ID_tipoCliente", nome, "desc", "dataVencimento", "valorMensalidade") VALUES (2, 'Cliente VIP', 'Cliente com status VIP', '2023-05-31', 200.00);
+INSERT INTO "TBL_tipoCliente" ("ID_tipoCliente", nome, "desc", "dataVencimento", "valorMensalidade") VALUES (3, 'Cliente Premium', 'Cliente com status Premium', '2023-05-31', 300.00);
+
+--Clientes
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (1, '2023-01-15', 1, 2, 1);
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (2, '2023-02-20', 1, 3, 2);
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (3, '2023-03-10', 1, 4, 1);
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (4, '2023-04-05', 1, 5, 3);
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (5, '2023-05-01', 1, 6, 1);
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (6, '2023-05-10', 1, 7, 2);
+INSERT INTO "TBL_Clientes" ("ID_Clientes", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoCliente_TBL_tipoCliente") VALUES (7, '2023-05-20', 1, 8, 3);
+
+---------------------------------------------------------------- AQUIIIIIIIIIII ----------------------------------------------------------
+
+--tipoProfessor
+INSERT INTO "TBL_tipoProfessor" ("ID_tipoProfessor", nome, "desc", salario) VALUES (1, 'Professor Júnior', 'Professor iniciante na carreira', 2000.00);
+INSERT INTO "TBL_tipoProfessor" ("ID_tipoProfessor", nome, "desc", salario) VALUES (2, 'Professor Pleno', 'Professor com experiência intermediária', 3000.00);
+INSERT INTO "TBL_tipoProfessor" ("ID_tipoProfessor", nome, "desc", salario) VALUES (3, 'Professor Sênior', 'Professor com vasta experiência', 5000.00);
+INSERT INTO "TBL_tipoProfessor" ("ID_tipoProfessor", nome, "desc", salario) VALUES (4, 'Professor Especialista', 'Professor especializado em uma área específica', 7000.00);
+
+--Professor
+INSERT INTO "TBL_Professor" ("ID_Professor", "dataAdmissao", "ID_pessoa_TBL_pessoa", "ID_Clube_TBL_Clube", "ID_tipoProfessor_TBL_tipoProfessor") VALUES (1, '2023-01-15', 9, 1, 1);
+INSERT INTO "TBL_Professor" ("ID_Professor", "dataAdmissao", "ID_pessoa_TBL_pessoa", "ID_Clube_TBL_Clube", "ID_tipoProfessor_TBL_tipoProfessor") VALUES (2, '2023-02-20', 10, 1, 2);
+INSERT INTO "TBL_Professor" ("ID_Professor", "dataAdmissao", "ID_pessoa_TBL_pessoa", "ID_Clube_TBL_Clube", "ID_tipoProfessor_TBL_tipoProfessor") VALUES (3, '2023-03-10', 11, 1, 3);
+INSERT INTO "TBL_Professor" ("ID_Professor", "dataAdmissao", "ID_pessoa_TBL_pessoa", "ID_Clube_TBL_Clube", "ID_tipoProfessor_TBL_tipoProfessor") VALUES (4, '2023-04-05', 12, 1, 4);
+
+
+--tipoFuncionario
+INSERT INTO "TBL_tipoFuncionarios" ("ID_tipoFuncionarios", nome, "desc", salario) VALUES (1, 'Atendente', 'Responsável pelo atendimento aos clientes', 1500.00);
+INSERT INTO "TBL_tipoFuncionarios" ("ID_tipoFuncionarios", nome, "desc", salario) VALUES (2, 'Técnico de Manutenção', 'Realiza a manutenção das quadras esportivas', 2000.00);
+INSERT INTO "TBL_tipoFuncionarios" ("ID_tipoFuncionarios", nome, "desc", salario) VALUES (3, 'Gerente', 'Responsável pela gestão do clube', 4000.00);
+INSERT INTO "TBL_tipoFuncionarios" ("ID_tipoFuncionarios", nome, "desc", salario) VALUES (4, 'Instrutor', 'Responsável por dar aulas e orientar os clientes', 2500.00);
+
+--Funcionario
+INSERT INTO "TBL_Funcionarios" ("ID_Funcionarios", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoFuncionarios_TBL_tipoFuncionarios") VALUES (1, '2023-01-15', 1, 13, 1);
+INSERT INTO "TBL_Funcionarios" ("ID_Funcionarios", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoFuncionarios_TBL_tipoFuncionarios") VALUES (2, '2023-02-20', 1, 14, 2);
+INSERT INTO "TBL_Funcionarios" ("ID_Funcionarios", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoFuncionarios_TBL_tipoFuncionarios") VALUES (3, '2023-03-10', 1, 15, 1);
+INSERT INTO "TBL_Funcionarios" ("ID_Funcionarios", "dataAdmissao", "ID_Clube_TBL_Clube", "ID_pessoa_TBL_pessoa", "ID_tipoFuncionarios_TBL_tipoFuncionarios") VALUES (4, '2023-04-05', 1, 16, 3);
+
+--tipoFinanceiro
+INSERT INTO "TBL_tipoFinanceiro" ("ID_tipoFinanceiro", nome, "desc") VALUES (1, 'Pagamento Mensal', 'Pagamento mensal dos clientes');
+INSERT INTO "TBL_tipoFinanceiro" ("ID_tipoFinanceiro", nome, "desc") VALUES (2, 'Taxa de Reserva', 'Taxa cobrada pela reserva de quadras');
+INSERT INTO "TBL_tipoFinanceiro" ("ID_tipoFinanceiro", nome, "desc") VALUES (3, 'Mensalidade de Materiais', 'Mensalidade para uso de materiais');
+INSERT INTO "TBL_tipoFinanceiro" ("ID_tipoFinanceiro", nome, "desc") VALUES (4, 'Taxa de Matrícula', 'Taxa cobrada no momento da matrícula');
+INSERT INTO "TBL_tipoFinanceiro" ("ID_tipoFinanceiro", nome, "desc") VALUES (5, 'Serviços Extras', 'Cobrança por serviços adicionais');
+
+--tipoEvento
+INSERT INTO "TBL_tipoEvento" ("ID_tipoEvento", nome, "desc") VALUES (1, 'Conferência', 'Evento voltado para palestras e debates');
+INSERT INTO "TBL_tipoEvento" ("ID_tipoEvento", nome, "desc") VALUES (2, 'Workshop', 'Evento prático com atividades e oficinas');
+INSERT INTO "TBL_tipoEvento" ("ID_tipoEvento", nome, "desc") VALUES (3, 'Seminário', 'Evento acadêmico com apresentações e discussões');
+INSERT INTO "TBL_tipoEvento" ("ID_tipoEvento", nome, "desc") VALUES (4, 'Festival', 'Evento cultural com shows e exposições');
+
+--evento
+INSERT INTO "TBL_Evento" ("ID_Evento", nome, "desc", "valor/taxa", "dataInicio", "dataFim", "ID_Clube_TBL_Clube", "ID_tipoEvento_TBL_tipoEvento") VALUES (1, 'Palestra de Marketing', 'Palestra sobre estratégias de marketing digital', 50.00, '2023-06-15', '2023-06-15', 1, 1);
+INSERT INTO "TBL_Evento" ("ID_Evento", nome, "desc", "valor/taxa", "dataInicio", "dataFim", "ID_Clube_TBL_Clube", "ID_tipoEvento_TBL_tipoEvento") VALUES (2, 'Workshop de Fotografia', 'Workshop prático de técnicas fotográficas', 100.00, '2023-07-10', '2023-07-12', 1, 2);
+INSERT INTO "TBL_Evento" ("ID_Evento", nome, "desc", "valor/taxa", "dataInicio", "dataFim", "ID_Clube_TBL_Clube", "ID_tipoEvento_TBL_tipoEvento") VALUES (3, 'Seminário de Ciência', 'Seminário com apresentações de pesquisas científicas', 30.00, '2023-08-20', '2023-08-22', 1, 3);
+INSERT INTO "TBL_Evento" ("ID_Evento", nome, "desc", "valor/taxa", "dataInicio", "dataFim", "ID_Clube_TBL_Clube", "ID_tipoEvento_TBL_tipoEvento") VALUES (4, 'Festival de Arte', 'Festival com shows, exposições e performances artísticas', 20.00, '2023-09-05', '2023-09-10', 1, 4);
+INSERT INTO "TBL_Evento" ("ID_Evento", nome, "desc", "valor/taxa", "dataInicio", "dataFim", "ID_Clube_TBL_Clube", "ID_tipoEvento_TBL_tipoEvento") VALUES (5, 'Conferência de Tecnologia', 'Conferência sobre inovações tecnológicas', 75.00, '2023-10-15', '2023-10-16', 1, 1);
+
+--financeiro
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (1, 'Pagamento Mensalidade', 'Pagamento mensalidade do mês de janeiro', '2023-01-05', 1, 1, null, 1, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (2, 'Taxa de Reserva', 'Taxa de reserva da quadra 1 no dia 2023-02-10', '2023-02-10', 1, 2, null, null, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (3, 'Mensalidade de Materiais', 'Mensalidade para uso de materiais do mês de março', '2023-03-15', 1, 3, null, 2, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (4, 'Taxa de Matrícula', 'Taxa de matrícula do aluno João Silva', '2023-04-02', 1, 4, null, 3, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (5, 'Serviços Extras', 'Cobrança por serviços extras realizados', '2023-05-20', 1, 5, null, 4, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (6, 'Pagamento Mensalidade', 'Pagamento mensalidade do mês de fevereiro', '2023-02-05', 1, 1, null, 5, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (7, 'Taxa de Reserva', 'Taxa de reserva da quadra 2 no dia 2023-03-12', '2023-03-12', 1, 2, null, null, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (8, 'Mensalidade de Materiais', 'Mensalidade para uso de materiais do mês de abril', '2023-04-15', 1, 3, null, 6, null, null);
+INSERT INTO "TBL_Financeiro" ("ID_Financeiro", nome, "desc", data, "ID_Clube_TBL_Clube", "ID_tipoFinanceiro_TBL_tipoFinanceiro", "ID_Professor_TBL_Professor", "ID_Clientes_TBL_Clientes", "ID_Evento_TBL_Evento", "ID_Funcionarios_TBL_Funcionarios") VALUES (9, 'Serviços Extras', 'Cobrança por serviços extras realizados', '2023-05-10', 1, 5, null, 7, null, null);
+
+--pagamento
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (1, 100.00, true, 1);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (2, 50.00, false, 2);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (3, 75.50, true, 3);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (4, 120.00, true, 4);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (5, 80.25, false, 5);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (6, 90.00, true, 6);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (7, 60.75, true, 7);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (8, 150.00, false, 8);
+INSERT INTO "TBL_pagamento" ("ID_pagamento", valor, "statusPagamento", "ID_Financeiro_TBL_Financeiro") VALUES (9, 95.50, true, 9);
+
+--reserva
+INSERT INTO "TBL_Reserva" ("ID_Reserva", data, "horarioInicio", "horarioFIm", "statusPagamento", "ID_Financeiro_TBL_Financeiro", "ID_Clientes_TBL_Clientes", "ID_Quadra_TBL_Quadra", "ID_Clube_TBL_Clube", "ID_Materiais_TBL_Materiais") VALUES (1, '2023-01-15', '14:00:00', '15:30:00', true, 1, 1, 1, 1, null);
+INSERT INTO "TBL_Reserva" ("ID_Reserva", data, "horarioInicio", "horarioFIm", "statusPagamento", "ID_Financeiro_TBL_Financeiro", "ID_Clientes_TBL_Clientes", "ID_Quadra_TBL_Quadra", "ID_Clube_TBL_Clube", "ID_Materiais_TBL_Materiais") VALUES (2, '2023-02-20', '10:30:00', '11:30:00', false, 2, 2, 2, 1, null);
+INSERT INTO "TBL_Reserva" ("ID_Reserva", data, "horarioInicio", "horarioFIm", "statusPagamento", "ID_Financeiro_TBL_Financeiro", "ID_Clientes_TBL_Clientes", "ID_Quadra_TBL_Quadra", "ID_Clube_TBL_Clube", "ID_Materiais_TBL_Materiais") VALUES (3, '2023-03-10', '16:00:00', '17:00:00', true, 3, 3, 3, 1, null);
+INSERT INTO "TBL_Reserva" ("ID_Reserva", data, "horarioInicio", "horarioFIm", "statusPagamento", "ID_Financeiro_TBL_Financeiro", "ID_Clientes_TBL_Clientes", "ID_Quadra_TBL_Quadra", "ID_Clube_TBL_Clube", "ID_Materiais_TBL_Materiais") VALUES (4, '2023-04-05', '09:00:00', '10:00:00', true, 4, 4, 4, 1, null);
+INSERT INTO "TBL_Reserva" ("ID_Reserva", data, "horarioInicio", "horarioFIm", "statusPagamento", "ID_Financeiro_TBL_Financeiro", "ID_Clientes_TBL_Clientes", "ID_Quadra_TBL_Quadra", "ID_Clube_TBL_Clube", "ID_Materiais_TBL_Materiais") VALUES (5, '2023-05-12', '13:30:00', '14:30:00', false, 5, 5, 5, 1, null);
+
+--aulas
+INSERT INTO "TBL_Aulas" ("ID_Aulas", valor, "horarioInicio", "horarioFim", data, "ID_Quadra_TBL_Quadra", "ID_Professor_TBL_Professor", "ID_Materiais_TBL_Materiais") VALUES (1, 50.00, '08:00:00', '10:00:00', '2023-06-15', 1, 1, 1);
+INSERT INTO "TBL_Aulas" ("ID_Aulas", valor, "horarioInicio", "horarioFim", data, "ID_Quadra_TBL_Quadra", "ID_Professor_TBL_Professor", "ID_Materiais_TBL_Materiais") VALUES (2, 30.00, '14:00:00', '16:00:00', '2023-07-10', 2, 2, 2);
+INSERT INTO "TBL_Aulas" ("ID_Aulas", valor, "horarioInicio", "horarioFim", data, "ID_Quadra_TBL_Quadra", "ID_Professor_TBL_Professor", "ID_Materiais_TBL_Materiais") VALUES (3, 40.00, '10:00:00', '12:00:00', '2023-08-20', 3, 3, 3);
+INSERT INTO "TBL_Aulas" ("ID_Aulas", valor, "horarioInicio", "horarioFim", data, "ID_Quadra_TBL_Quadra", "ID_Professor_TBL_Professor", "ID_Materiais_TBL_Materiais") VALUES (4, 25.00, '16:00:00', '18:00:00', '2023-09-05', 4, 4, 4);
+
+--turma
+INSERT INTO "TBL_Turma" ("ID_Turma") VALUES (1);
+INSERT INTO "TBL_Turma" ("ID_Turma") VALUES (2);
+INSERT INTO "TBL_Turma" ("ID_Turma") VALUES (3);
+
+INSERT INTO "many_TBL_Clientes_has_many_TBL_Turma" ("ID_Clientes_TBL_Clientes", "ID_Turma_TBL_Turma") VALUES (1, 1);
+INSERT INTO "many_TBL_Clientes_has_many_TBL_Turma" ("ID_Clientes_TBL_Clientes", "ID_Turma_TBL_Turma") VALUES (2, 1);
+INSERT INTO "many_TBL_Clientes_has_many_TBL_Turma" ("ID_Clientes_TBL_Clientes", "ID_Turma_TBL_Turma") VALUES (3, 2);
+INSERT INTO "many_TBL_Clientes_has_many_TBL_Turma" ("ID_Clientes_TBL_Clientes", "ID_Turma_TBL_Turma") VALUES (4, 3);
+INSERT INTO "many_TBL_Clientes_has_many_TBL_Turma" ("ID_Clientes_TBL_Clientes", "ID_Turma_TBL_Turma") VALUES (5, 2);
+
+INSERT INTO "many_TBL_Turma_has_many_TBL_Aulas" ("ID_Turma_TBL_Turma", "ID_Aulas_TBL_Aulas") VALUES (1, 1);
+INSERT INTO "many_TBL_Turma_has_many_TBL_Aulas" ("ID_Turma_TBL_Turma", "ID_Aulas_TBL_Aulas") VALUES (2, 3);
+INSERT INTO "many_TBL_Turma_has_many_TBL_Aulas" ("ID_Turma_TBL_Turma", "ID_Aulas_TBL_Aulas") VALUES (1, 2);
+INSERT INTO "many_TBL_Turma_has_many_TBL_Aulas" ("ID_Turma_TBL_Turma", "ID_Aulas_TBL_Aulas") VALUES (3, 4);
+
